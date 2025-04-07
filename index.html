@@ -1,24 +1,17 @@
 <!DOCTYPE html>
 <html style="font-size: 16px;" lang="en"><head>
+    <link rel="icon" href="favicon/favicon.png" type="image/png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta name="keywords" content="Hãy để chúng tôi len lỏi vào cuộc sống của bạn​, ​​​Các chức năng chính gây sốt của hệ thống, Về Chúng tôi​, ​Family Camp, Lời chia sẻ của anh Harry tại ​California, Để lại thông tin liên hệ của bạn ở đây ​">
     <meta name="description" content="">
-    <title>Home</title>
+    <title>Time Flow</title>
     <link rel="stylesheet" href="nicepage.css" media="screen">
 <link rel="stylesheet" href="index.css" media="screen">
     <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
     <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
     <meta name="generator" content="Nicepage 7.7.3, nicepage.com">
     <meta name="referrer" content="origin">
-    
-    
-    
-    
-    
-    
-    
-    
     <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
     <script type="application/ld+json">{
 		"@context": "http://schema.org",
@@ -119,8 +112,18 @@
               </div>
               <div class="u-size-25-lg u-size-25-xl u-size-60-md u-size-60-sm u-size-60-xs">
                 <div class="u-layout-col">
-                  <div class="u-container-style u-image u-layout-cell u-size-60 u-image-1" data-image-width="717" data-image-height="1080" data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="500">
-                    <div class="u-container-layout u-container-layout-2"></div>
+                  <div class="u-container-style u-layout-cell u-size-60">
+                    <div class="u-container-layout u-container-layout-2">
+                      <video id="myVideo" controls loop playsinline style="width: 100%;border-radius: 10px;">
+                        <source src="video/Demo.mp4" type="video/mp4" />
+                      </video>
+                      <script>
+                        window.addEventListener('click', function () {
+                          const video = document.getElementById('myVideo');
+                          video.play();
+                        }, { once: true });
+                      </script>
+                    </div>
                   </div>
                 </div>
               </div>
