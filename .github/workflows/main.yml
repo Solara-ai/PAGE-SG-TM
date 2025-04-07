@@ -1,0 +1,40 @@
+name: Pull and Deploy Project to Server
+
+on:
+  push:
+    branches:
+      - main  # Thay đổi nhánh theo nhu cầu của bạn
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2  # Checkout mã nguồn của repository
+
+    - name: Set up SSH
+      run: |
+        # Cài đặt SSH và cấu hình key
+        sudo apt-get install -y openssh-client
+        mkdir -p ~/.ssh
+        echo "$PRIVATE_KEY" > ~/.ssh/id_rsa  # Đọc private key từ GitHub secrets
+        chmod 600 ~/.ssh/id_rsa
+
+        # Tắt kiểm tra host key (nếu cần)
+        echo "Host *" > ~/.ssh/config
+        echo "  StrictHostKeyChecking no" >> ~/.ssh/config
+        echo "  UserKnownHostsFile /dev/null" >> ~/.ssh/config
+
+    - name: Pull project on server
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.SERVER_HOST }}  # Server IP or domain
+        username: ${{ secrets.SERVER_USER }}  # SSH User
+        key: ${{ secrets.SERVER_SSH_KEY }}
+        script: |
+          cd /root/path/web_about_us/PAGE-SG-TM/
+          git pull origin main
+          sudo systemctl restart aboutus
+          echo "FastAPI deployed successfully!"
+
